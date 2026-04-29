@@ -1,91 +1,27 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:30px;
-}
-
-.container{
-    width:800px;
-    max-width:100%;
-
-    background:#111827;
-
-    padding:40px;
-
-    border-radius:20px;
-
-    box-shadow:0 0 25px rgba(0,0,0,0.5);
-}
-
-h1{
-    text-align:center;
-
-    font-size:42px;
-
-    color:#38bdf8;
-
-    margin-bottom:20px;
-}
-
-.intro{
-    text-align:center;
-
-    font-size:18px;
-
-    line-height:1.6;
-
-    color:#d1d5db;
-
-    margin-bottom:30px;
-}
-
 .card{
+    display:block;
+
+    text-decoration:none;
+
     background:#1e293b;
 
-    padding:20px;
+    padding:25px;
 
-    border-radius:15px;
+    border-radius:18px;
 
     margin-top:20px;
 
     transition:0.3s;
+
+    border:2px solid transparent;
 }
 
 .card:hover{
-    transform:scale(1.03);
+    transform:translateY(-5px) scale(1.02);
 
     background:#334155;
-}
 
-h2{
-    margin-bottom:10px;
+    border:2px solid #38bdf8;
 
-    color:#60a5fa;
-}
-
-.card p{
-    color:#d1d5db;
-
-    line-height:1.6;
-}
-
-footer{
-    text-align:center;
-
-    margin-top:30px;
-
-    color:#9ca3af;
+    box-shadow:0 0 20px rgba(56,189,248,0.4);
 }
