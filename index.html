@@ -3,144 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planejamento de Vida</title>
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', sans-serif;
-}
+<title>✨ Jornada do Propósito | Planejamento de Vida por Yago ✨</title>
 
-body{
-  background:#0a0f1c;
-  color:#e5e7eb;
-  padding:40px;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-}
-
-h1{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:10px;
-  color:#60a5fa;
-}
-
-.subtitle{
-  text-align:center;
-  color:#9ca3af;
-  margin-bottom:40px;
-}
-
-.card{
-  background:#111827;
-  border-left:5px solid #3b82f6;
-  padding:25px;
-  margin-bottom:25px;
-  border-radius:10px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 20px rgba(59,130,246,0.3);
-}
-
-h2{
-  margin-bottom:10px;
-  color:#93c5fd;
-}
-
-.description{
-  margin-bottom:15px;
-  color:#d1d5db;
-}
-
-.timer{
-  font-size:18px;
-  font-weight:bold;
-  color:#22c55e;
-}
-
-footer{
-  text-align:center;
-  margin-top:40px;
-  color:#6b7280;
-}
-</style>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<div class="container">
-  <h1>📅 Planejamento de Vida</h1>
-  <p class="subtitle">Objetivos de longo prazo com disciplina e consistência</p>
-
-  <div class="card">
-    <h2>🎓 Faculdade (6 anos)</h2>
-    <p class="description">Concluir Engenharia da Computação desenvolvendo habilidades em programação, matemática e sistemas computacionais.</p>
-    <div class="timer" id="faculdade"></div>
+<div class="hero-section">
+  <div class="hero-content">
+    <div class="floating-emoji">🚀</div>
+    <h1>Sua Jornada Começa Agora</h1>
+    <p class="hero-subtitle">Cada segundo é um passo em direção aos seus sonhos</p>
+    <div class="scroll-indicator">↓</div>
   </div>
-
-  <div class="card">
-    <h2>🚗 CNH (1 ano)</h2>
-    <p class="description">Obter independência e mobilidade através da carteira de habilitação.</p>
-    <div class="timer" id="cnh"></div>
-  </div>
-
-  <div class="card">
-    <h2>🏠 Casa própria (7 anos)</h2>
-    <p class="description">Alcançar estabilidade financeira para adquirir um imóvel próprio.</p>
-    <div class="timer" id="casa"></div>
-  </div>
-
-  <div class="card">
-    <h2>👶 Filho (10 anos)</h2>
-    <p class="description">Construir uma família com estabilidade emocional, financeira e responsabilidade.</p>
-    <div class="timer" id="filho"></div>
-  </div>
-
-  <footer>🚀 Projeto desenvolvido por Yago</footer>
 </div>
 
-<script>
-function criarTimer(id, anos){
-  const elemento = document.getElementById(id);
+<div class="container">
 
-  const agora = new Date();
-  const futuro = new Date();
-  futuro.setFullYear(agora.getFullYear() + anos);
+<div class="intro-text">
+  <p class="quote">"O segredo do futuro está na sua rotina de hoje."</p>
+  <p class="intro-paragraph">Planejar é mais do que definir metas — é transformar sonhos em compromissos diários. Abaixo estão os pilares da minha jornada: objetivos que exigem <strong>disciplina</strong>, <strong>consistência</strong> e <strong>propósito</strong>. Cada timer representa não apenas o tempo que falta, mas o tempo que tenho para me preparar, crescer e evoluir.</p>
+</div>
 
-  function atualizar(){
-    const atual = new Date();
-    const diff = futuro - atual;
+<div class="card">
+  <div class="card-icon">🎓</div>
+  <div class="card-content">
+    <h2>Formação Acadêmica</h2>
+    <div class="timeline-badge">Meta: 6 anos</div>
+    <p class="description">
+      <strong>Engenharia da Computação</strong> — Mais que um diploma, é a construção de uma base sólida em 
+      <span class="highlight">programação, algoritmos, inteligência artificial e sistemas embarcados</span>. 
+      Cada aula, cada projeto e cada madrugada de estudos serão tijolos na fundação da minha carreira 
+      tecnológica. A faculdade não é o destino final, mas o <strong>lançamento para o infinito</strong>.
+    </p>
+    <div class="progress-container">
+      <div class="progress-label">Progresso</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-faculdade"></div>
+      </div>
+    </div>
+    <div class="timer" id="faculdade"></div>
+    <div class="motivation-message" id="msg-faculdade"></div>
+  </div>
+</div>
 
-    if(diff <= 0){
-      elemento.innerHTML = "🎉 Objetivo alcançado! 🎉";
-      return;
-    }
+<div class="card">
+  <div class="card-icon">🚗</div>
+  <div class="card-content">
+    <h2>Liberdade Sobre Rodas</h2>
+    <div class="timeline-badge">Meta: 1 ano</div>
+    <p class="description">
+      A <strong>Carteira Nacional de Habilitação (CNH)</strong> representa muito mais que um documento — 
+      é a chave para <span class="highlight">independência, autonomia e novas possibilidades</span>. 
+      Poder ir e vir sem depender de ninguém, explorar novos lugares, assumir responsabilidades e 
+      abrir portas profissionais. É o primeiro grande passo rumo à <strong>liberdade geográfica</strong>.
+    </p>
+    <div class="progress-container">
+      <div class="progress-label">Progresso</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-cnh"></div>
+      </div>
+    </div>
+    <div class="timer" id="cnh"></div>
+    <div class="motivation-message" id="msg-cnh"></div>
+  </div>
+</div>
 
-    const segundos = Math.floor(diff / 1000) % 60;
-    const minutos = Math.floor(diff / 1000 / 60) % 60;
-    const horas = Math.floor(diff / 1000 / 60 / 60) % 24;
-    const dias = Math.floor(diff / 1000 / 60 / 60 / 24);
-    const anosRestantes = Math.floor(dias / 365);
+<div class="card">
+  <div class="card-icon">🏠</div>
+  <div class="card-content">
+    <h2>Meu Lar, Meu Refúgio</h2>
+    <div class="timeline-badge">Meta: 7 anos</div>
+    <p class="description">
+      A <strong>casa própria</strong> vai além de quatro paredes — é o símbolo da <span class="highlight">estabilidade financeira e emocional</span>. 
+      É o lugar onde construirei memórias, onde minhas paredes vão testemunhar meus acertos e aprendizados. 
+      Para chegar lá, cada real investido, cada decisão financeira consciente e cada hora extra de trabalho 
+      será um <strong>investimento no meu futuro</strong>. Não é apenas um imóvel: é a realização de um sonho de segurança.
+    </p>
+    <div class="progress-container">
+      <div class="progress-label">Progresso</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-casa"></div>
+      </div>
+    </div>
+    <div class="timer" id="casa"></div>
+    <div class="motivation-message" id="msg-casa"></div>
+  </div>
+</div>
 
-    elemento.innerHTML = `⏱️ ${anosRestantes} anos, ${dias % 365} dias, ${horas}h ${minutos}m ${segundos}s`;
-  }
+<div class="card">
+  <div class="card-icon">👨‍👩‍👧</div>
+  <div class="card-content">
+    <h2>Legado Familiar</h2>
+    <div class="timeline-badge">Meta: 10 anos</div>
+    <p class="description">
+      Ter um <strong>filho</strong> é a experiência humana mais transformadora — é decidir deixar um legado, 
+      compartilhar amor e construir uma família com <span class="highlight">responsabilidade e propósito</span>. 
+      Antes disso, preciso estar preparado: mentalmente maduro, financeiramente estável e emocionalmente pronto. 
+      Não se trata apenas de gerar uma vida, mas de <strong>merecer ser exemplo</strong>. É sobre construir um lar onde 
+      o amor, o respeito e a educação caminhem juntos.
+    </p>
+    <div class="progress-container">
+      <div class="progress-label">Progresso</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-filho"></div>
+      </div>
+    </div>
+    <div class="timer" id="filho"></div>
+    <div class="motivation-message" id="msg-filho"></div>
+  </div>
+</div>
 
-  atualizar();
-  setInterval(atualizar, 1000);
-}
+<div class="reflection-section">
+  <h3>💭 Por que planejar?</h3>
+  <div class="reflection-grid">
+    <div class="reflection-item">
+      <span class="reflection-emoji">🎯</span>
+      <p>Metas sem prazos são apenas desejos. Com prazos, tornam-se compromissos.</p>
+    </div>
+    <div class="reflection-item">
+      <span class="reflection-emoji">📚</span>
+      <p>Disciplina é a ponte entre objetivos e realizações.</p>
+    </div>
+    <div class="reflection-item">
+      <span class="reflection-emoji">⏰</span>
+      <p>Cada segundo perdido é uma oportunidade que não volta.</p>
+    </div>
+    <div class="reflection-item">
+      <span class="reflection-emoji">🌟</span>
+      <p>O amanhã pertence a quem se prepara hoje.</p>
+    </div>
+  </div>
+</div>
 
-criarTimer("faculdade", 6);
-criarTimer("cnh", 1);
-criarTimer("casa", 7);
-criarTimer("filho", 10);
-</script>
+<footer>
+  <div class="footer-content">
+    <p>🚀 Projeto desenvolvido por <strong>Yago</strong></p>
+    <p class="small">Planejamento 2026-2036 | Disciplina, Consistência e Propósito</p>
+    <div class="footer-tags">
+      <span>#PlanejamentoDeVida</span>
+      <span>#Disciplina</span>
+      <span>#FocoNoFuturo</span>
+    </div>
+  </div>
+</footer>
 
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
