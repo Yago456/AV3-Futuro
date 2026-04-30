@@ -1,72 +1,146 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planejamento de Vida | Yago</title>
+<title>Planejamento de Vida</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
 
-<link rel="stylesheet" href="style.css">
+body{
+  background:#0a0f1c;
+  color:#e5e7eb;
+  padding:40px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+h1{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:10px;
+  color:#60a5fa;
+}
+
+.subtitle{
+  text-align:center;
+  color:#9ca3af;
+  margin-bottom:40px;
+}
+
+.card{
+  background:#111827;
+  border-left:5px solid #3b82f6;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(59,130,246,0.3);
+}
+
+h2{
+  margin-bottom:10px;
+  color:#93c5fd;
+}
+
+.description{
+  margin-bottom:15px;
+  color:#d1d5db;
+}
+
+.timer{
+  font-size:18px;
+  font-weight:bold;
+  color:#22c55e;
+}
+
+footer{
+  text-align:center;
+  margin-top:40px;
+  color:#6b7280;
+}
+</style>
 </head>
-
 <body>
 
 <div class="container">
+  <h1>📅 Planejamento de Vida</h1>
+  <p class="subtitle">Objetivos de longo prazo com disciplina e consistência</p>
 
-<h1>📅 Planejamento de Vida</h1>
-<p class="subtitle">Objetivos de longo prazo com disciplina, estudo e consistência</p>
-
-<div class="card">
-  <h2>🎓 Faculdade (6 anos)</h2>
-  <p class="description">
-    Concluir Engenharia da Computação desenvolvendo habilidades em programação,
-    matemática e sistemas computacionais.
-  </p>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-faculdade"></div>
+  <div class="card">
+    <h2>🎓 Faculdade (6 anos)</h2>
+    <p class="description">Concluir Engenharia da Computação desenvolvendo habilidades em programação, matemática e sistemas computacionais.</p>
+    <div class="timer" id="faculdade"></div>
   </div>
-  <div class="timer" id="faculdade"></div>
-</div>
 
-<div class="card">
-  <h2>🚗 CNH (1 ano)</h2>
-  <p class="description">
-    Obter independência e mobilidade através da carteira de habilitação.
-  </p>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-cnh"></div>
+  <div class="card">
+    <h2>🚗 CNH (1 ano)</h2>
+    <p class="description">Obter independência e mobilidade através da carteira de habilitação.</p>
+    <div class="timer" id="cnh"></div>
   </div>
-  <div class="timer" id="cnh"></div>
-</div>
 
-<div class="card">
-  <h2>🏠 Casa própria (7 anos)</h2>
-  <p class="description">
-    Alcançar estabilidade financeira para adquirir um imóvel próprio.
-  </p>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-casa"></div>
+  <div class="card">
+    <h2>🏠 Casa própria (7 anos)</h2>
+    <p class="description">Alcançar estabilidade financeira para adquirir um imóvel próprio.</p>
+    <div class="timer" id="casa"></div>
   </div>
-  <div class="timer" id="casa"></div>
-</div>
 
-<div class="card">
-  <h2>👶 Filho (10 anos)</h2>
-  <p class="description">
-    Construir uma família com estabilidade emocional, financeira e responsabilidade.
-  </p>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-filho"></div>
+  <div class="card">
+    <h2>👶 Filho (10 anos)</h2>
+    <p class="description">Construir uma família com estabilidade emocional, financeira e responsabilidade.</p>
+    <div class="timer" id="filho"></div>
   </div>
-  <div class="timer" id="filho"></div>
+
+  <footer>🚀 Projeto desenvolvido por Yago</footer>
 </div>
 
-<footer>
-  <p>🚀 Projeto desenvolvido por Yago | Planejamento 2026-2036</p>
-  <p class="small">Metas atualizadas em tempo real com disciplina e consistência</p>
-</footer>
+<script>
+function criarTimer(id, anos){
+  const elemento = document.getElementById(id);
 
-</div>
+  const agora = new Date();
+  const futuro = new Date();
+  futuro.setFullYear(agora.getFullYear() + anos);
 
-<script src="script.js"></script>
+  function atualizar(){
+    const atual = new Date();
+    const diff = futuro - atual;
+
+    if(diff <= 0){
+      elemento.innerHTML = "🎉 Objetivo alcançado! 🎉";
+      return;
+    }
+
+    const segundos = Math.floor(diff / 1000) % 60;
+    const minutos = Math.floor(diff / 1000 / 60) % 60;
+    const horas = Math.floor(diff / 1000 / 60 / 60) % 24;
+    const dias = Math.floor(diff / 1000 / 60 / 60 / 24);
+    const anosRestantes = Math.floor(dias / 365);
+
+    elemento.innerHTML = `⏱️ ${anosRestantes} anos, ${dias % 365} dias, ${horas}h ${minutos}m ${segundos}s`;
+  }
+
+  atualizar();
+  setInterval(atualizar, 1000);
+}
+
+criarTimer("faculdade", 6);
+criarTimer("cnh", 1);
+criarTimer("casa", 7);
+criarTimer("filho", 10);
+</script>
+
 </body>
 </html>
