@@ -9,7 +9,7 @@
 
 Um sistema de **planejamento de vida** com contadores regressivos para objetivos de longo prazo. Desenvolvido para acompanhar metas importantes como faculdade, CNH, casa própria e formação de família.
 
-**🔗 Acesse aqui:** [https://seu-usuario.github.io/nome-repositorio](https://seu-usuario.github.io/nome-repositorio)
+**🔗 Acesse aqui:** [https://seu-usuario.github.io/nome-repositorio]( https://yago456.github.io/AV3-Futuro/)
 
 ---
 
@@ -43,10 +43,3 @@ Um sistema de **planejamento de vida** com contadores regressivos para objetivos
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-</div>
-
----
-
-## 📂 Estrutura do Projeto
-
