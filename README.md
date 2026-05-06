@@ -2,9 +2,6 @@
 
 ![Status](https://img.shields.io/badge/status-finalizado-brightgreen)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
 ## 🎯 Sobre o Projeto
 
 Um sistema de **planejamento de vida** com contadores regressivos para objetivos de longo prazo. Desenvolvido para acompanhar metas importantes como faculdade, CNH, casa própria e formação de família.
