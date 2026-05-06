@@ -1,99 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Planejamento de Vida</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#0a0f1c;color:#fff;font-family:Arial;padding:20px;}
-.container{max-width:900px;margin:auto;}
-h1{text-align:center;color:#60a5fa;margin-bottom:20px;}
-.card{background:#111827;border-left:5px solid #3b82f6;padding:20px;margin-bottom:20px;border-radius:10px;}
-h2{color:#93c5fd;margin-bottom:10px;}
-.desc{color:#ccc;margin-bottom:15px;font-size:14px;}
-.timer{font-size:22px;font-weight:bold;color:#22c55e;text-align:center;padding:10px;background:#1e293b;border-radius:8px;}
-.porque{background:#1e1b4b;padding:25px;border-radius:15px;margin-top:30px;border-left:5px solid #a78bfa;}
-.porque h3{color:#c4b5fd;margin-bottom:15px;font-size:22px;}
-.porque p{margin-bottom:10px;color:#ddd;line-height:1.6;}
-.porque ul{margin-left:20px;margin-top:10px;}
-.porque li{margin-bottom:8px;color:#ccc;}
-footer{text-align:center;margin-top:30px;color:#6b7280;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planejamento de Vida | Yago</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0f1c;
+      color: #e5e7eb;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    .card {
+      background: #111827;
+      border-left: 5px solid #3b82f6;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    }
+
+    h2 {
+      color: #93c5fd;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      display: inline-block;
+      background: #1e293b;
+      color: #60a5fa;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .desc {
+      color: #d1d5db;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .timer {
+      background: #1e293b;
+      color: #22c55e;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+    }
+
+    .porque {
+      background: #111827;
+      border-left: 5px solid #a78bfa;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 32px;
+    }
+
+    .porque h3 {
+      color: #c4b5fd;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .porque p {
+      color: #d1d5db;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .porque ul {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .porque li {
+      color: #d1d5db;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .porque strong {
+      color: #a78bfa;
+    }
+
+    .conclusao {
+      background: #1e1b4b;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-style: italic;
+      color: #c4b5fd;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #1f2937;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-<h1>📅 Planejamento de Vida</h1>
+  <h1>📅 Planejamento de Vida</h1>
+  <p class="subtitle">Objetivos de longo prazo com disciplina, estudo e consistência</p>
 
-<div class="card">
-  <h2>🎓 Faculdade (6 anos)</h2>
-  <p class="desc">Engenharia da Computação - construindo base sólida em programação, IA e sistemas.</p>
-  <div class="timer" id="faculdade"></div>
-</div>
+  <!-- Faculdade -->
+  <div class="card">
+    <h2>🎓 Formação Acadêmica</h2>
+    <div class="meta">Meta: 6 anos</div>
+    <p class="desc">Engenharia da Computação — construindo uma base sólida em programação, algoritmos, inteligência artificial e sistemas embarcados. Cada aula e cada projeto são tijolos na fundação da minha carreira tecnológica.</p>
+    <div class="timer" id="timerFaculdade"></div>
+  </div>
 
-<div class="card">
-  <h2>🚗 CNH (1 ano)</h2>
-  <p class="desc">Liberdade e independência para ir e vir.</p>
-  <div class="timer" id="cnh"></div>
-</div>
+  <!-- CNH -->
+  <div class="card">
+    <h2>🚗 Liberdade Sobre Rodas</h2>
+    <div class="meta">Meta: 1 ano</div>
+    <p class="desc">Carteira Nacional de Habilitação — a chave para independência, autonomia e novas possibilidades. Poder ir e vir sem depender de ninguém é o primeiro passo rumo à liberdade geográfica.</p>
+    <div class="timer" id="timerCnh"></div>
+  </div>
 
-<div class="card">
-  <h2>🏠 Casa própria (7 anos)</h2>
-  <p class="desc">Estabilidade financeira e realização do sonho do lar.</p>
-  <div class="timer" id="casa"></div>
-</div>
+  <!-- Casa própria -->
+  <div class="card">
+    <h2>🏠 Meu Lar, Meu Refúgio</h2>
+    <div class="meta">Meta: 7 anos</div>
+    <p class="desc">Casa própria — o símbolo da estabilidade financeira e emocional. Cada real investido e cada decisão consciente me aproximam da realização desse sonho de segurança.</p>
+    <div class="timer" id="TimerCasa"></div>
+  </div>
 
-<div class="card">
-  <h2>👶 Filho (10 anos)</h2>
-  <p class="desc">Construir uma família com amor, responsabilidade e propósito.</p>
-  <div class="timer" id="filho"></div>
-</div>
+  <!-- Filho -->
+  <div class="card">
+    <h2>👶 Legado Familiar</h2>
+    <div class="meta">Meta: 10 anos</div>
+    <p class="desc">Ter um filho — a experiência mais transformadora. Deixar um legado, compartilhar amor e construir uma família com responsabilidade, maturidade e propósito.</p>
+    <div class="timer" id="timerFilho"></div>
+  </div>
 
-<!-- SEÇÃO "POR QUE ALCANÇAR ESSES OBJETIVOS?" -->
-<div class="porque">
-  <h3>💭 Por que alcançar esses objetivos?</h3>
-  <p>Cada meta representa um pilar essencial para minha realização pessoal e profissional:</p>
-  <ul>
-    <li><strong>🎓 Faculdade:</strong> conhecimento é a base de tudo. Com ele, posso transformar minha realidade e abrir portas para oportunidades que antes pareciam distantes.</li>
-    <li><strong>🚗 CNH:</strong> independência para ir onde quiser, sem depender de ninguém. Mobilidade é liberdade para crescer e explorar.</li>
-    <li><strong>🏠 Casa própria:</strong> estabilidade e segurança. Ter meu cantinho significa conquistar um patrimônio e construir memócias em um lugar que é só meu.</li>
-    <li><strong>👶 Filho:</strong> deixar um legado. Ser exemplo, compartilhar amor e construir uma família baseada em valores sólidos.</li>
-  </ul>
-  <p style="margin-top:15px;"><strong>✨ Conclusão:</strong> Esses objetivos não são apenas sonhos — são compromissos que exige disciplina, consistência e propósito todos os dias.</p>
-</div>
+  <!-- Por que alcançar esses objetivos? -->
+  <div class="porque">
+    <h3>💭 Por que alcançar esses objetivos?</h3>
+    <p>Cada meta representa um pilar essencial para minha realização pessoal e profissional:</p>
+    <ul>
+      <li><strong>🎓 Faculdade:</strong> O conhecimento é a moeda do futuro. Com ele, posso transformar minha realidade, conquistar boas oportunidades e construir uma carreira sólida.</li>
+      <li><strong>🚗 CNH:</strong> Independência não tem preço. Ter mobilidade significa mais liberdade para trabalhar, estudar, viajar e aproveitar a vida sem depender de ninguém.</li>
+      <li><strong>🏠 Casa própria:</strong> Segurança e estabilidade. Ter meu cantinho é conquistar um patrimônio, ter um refúgio e construir memórias em um lugar que é realmente meu.</li>
+      <li><strong>👶 Filho:</strong> Deixar um legado. Ser exemplo para uma nova vida, compartilhar valores, amor e construir uma família baseada em respeito e propósito.</li>
+    </ul>
+    <div class="conclusao">
+      ✨ Esses objetivos não são apenas sonhos — são compromissos que exigem disciplina, consistência e propósito todos os dias. O futuro não espera, ele se constrói agora.
+    </div>
+  </div>
 
-<footer>🚀 Projeto desenvolvido por Yago | Disciplina e consistência</footer>
+  <footer>
+    🚀 Projeto desenvolvido por Yago | Planejamento 2026-2036
+  </footer>
 </div>
 
 <script>
-function timer(id, anos){
-  let el = document.getElementById(id);
-  let futuro = new Date();
-  futuro.setFullYear(futuro.getFullYear() + anos);
-  
-  setInterval(() => {
-    let agora = new Date();
-    let diff = futuro - agora;
-    
-    if(diff <= 0){
-      el.innerHTML = "🎯 OBJETIVO ALCANÇADO! Agora é seguir em frente e aproveitar a conquista!";
-      return;
-    }
-    
-    let seg = Math.floor(diff / 1000) % 60;
-    let min = Math.floor(diff / 1000 / 60) % 60;
-    let horas = Math.floor(diff / 1000 / 60 / 60) % 24;
-    let dias = Math.floor(diff / 1000 / 60 / 60 / 24);
-    let anosRest = Math.floor(dias / 365);
-    
-    el.innerHTML = `${anosRest} anos, ${dias % 365} dias, ${horas}h ${min}m ${seg}s`;
-  }, 1000);
-}
+  function iniciarTimer(id, anos) {
+    const elemento = document.getElementById(id);
+    const dataAlvo = new Date();
+    dataAlvo.setFullYear(dataAlvo.getFullYear() + anos);
 
-timer("faculdade", 6);
-timer("cnh", 1);
-timer("casa", 7);
-timer("filho", 10);
+    function atualizar() {
+      const agora = new Date();
+      const diff = dataAlvo - agora;
+
+      if (diff <= 0) {
+        elemento.innerHTML = "🎉 OBJETIVO ALCANÇADO! 🎉 Agora é celebrar e seguir em frente.";
+        return;
+      }
+
+      const segundos = Math.floor(diff / 1000) % 60;
+      const minutos = Math.floor(diff / 1000 / 60) % 60;
+      const horas = Math.floor(diff / 1000 / 60 / 60) % 24;
+      const dias = Math.floor(diff / 1000 / 60 / 60 / 24);
+      const anosRestantes = Math.floor(dias / 365);
+      const diasRestantes = dias % 365;
+
+      elemento.innerHTML = `⏱️ ${anosRestantes} ano${anosRestantes !== 1 ? 's' : ''}, ${diasRestantes} dia${diasRestantes !== 1 ? 's' : ''}, ${horas.toString().padStart(2, '0')}h ${minutos.toString().padStart(2, '0')}m ${segundos.toString().padStart(2, '0')}s`;
+    }
+
+    atualizar();
+    setInterval(atualizar, 1000);
+  }
+
+  iniciarTimer("timerFaculdade", 6);
+  iniciarTimer("timerCnh", 1);
+  iniciarTimer("TimerCasa", 7);
+  iniciarTimer("timerFilho", 10);
 </script>
 
 </body>
