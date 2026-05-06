@@ -12,11 +12,17 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 100%);
+      background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 50%, #1e1b4b 100%);
       color: #e5e7eb;
       font-family: 'Segoe UI', Arial, sans-serif;
       padding: 40px 20px;
       min-height: 100vh;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .container {
@@ -24,16 +30,22 @@
       margin: 0 auto;
     }
 
-    /* Título com enfeite */
+    /* Título com animação */
     h1 {
       text-align: center;
-      font-size: 42px;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      font-size: 44px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 10px;
       letter-spacing: -0.5px;
+      animation: titleGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes titleGlow {
+      0%, 100% { filter: drop-shadow(0 0 0px rgba(96,165,250,0)); }
+      50% { filter: drop-shadow(0 0 15px rgba(96,165,250,0.5)); }
     }
 
     .subtitle {
@@ -41,47 +53,72 @@
       color: #9ca3af;
       margin-bottom: 40px;
       font-size: 16px;
-      border-bottom: 1px solid #1e293b;
+      padding-bottom: 8px;
+      border-bottom: 2px dotted #3b82f6;
       display: inline-block;
       width: auto;
       margin-left: auto;
       margin-right: auto;
-      padding-bottom: 8px;
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    /* Card com efeito de expansão no hover */
+    @keyframes pulse {
+      0%, 100% { border-bottom-color: #3b82f6; }
+      50% { border-bottom-color: #a78bfa; }
+    }
+
+    /* Card com múltiplos efeitos */
     .card {
-      background: #111827;
+      background: rgba(17, 24, 39, 0.9);
+      backdrop-filter: blur(5px);
       border-left: 5px solid #3b82f6;
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 24px;
       margin-bottom: 24px;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
-    /* Efeito de expansão: aumenta o card e a borda */
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
-      border-left-width: 8px;
+    /* Efeito de brilho que passa por cima */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.2), transparent);
+      transition: left 0.6s;
     }
 
-    /* Enfeite de fundo no hover */
     .card:hover::before {
+      left: 100%;
+    }
+
+    /* Expansão e sombra no hover */
+    .card:hover {
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+      border-left-width: 8px;
+      border-left-color: #a78bfa;
+    }
+
+    /* Emoji flutuante no canto */
+    .card::after {
       content: "✨";
       position: absolute;
-      top: 10px;
+      bottom: 10px;
       right: 15px;
-      font-size: 20px;
-      opacity: 0.6;
-      animation: brilho 1s ease infinite;
+      font-size: 24px;
+      opacity: 0;
+      transition: all 0.3s ease;
     }
 
-    @keyframes brilho {
-      0%, 100% { opacity: 0.3; transform: rotate(0deg); }
-      50% { opacity: 0.8; transform: rotate(10deg); }
+    .card:hover::after {
+      opacity: 0.5;
+      transform: rotate(15deg) scale(1.2);
     }
 
     h2 {
@@ -91,17 +128,30 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover h2 {
+      transform: translateX(5px);
+      color: #c4b5fd;
     }
 
     .meta {
       display: inline-block;
-      background: #1e293b;
+      background: linear-gradient(135deg, #1e293b, #2d3a5a);
       color: #60a5fa;
       font-size: 12px;
       font-weight: bold;
       padding: 4px 12px;
       border-radius: 20px;
       margin-bottom: 12px;
+      transition: all 0.3s;
+    }
+
+    .card:hover .meta {
+      background: linear-gradient(135deg, #3b82f6, #a78bfa);
+      color: white;
+      transform: scale(1.05);
     }
 
     .desc {
@@ -109,9 +159,14 @@
       line-height: 1.5;
       margin-bottom: 16px;
       font-size: 14px;
+      transition: color 0.3s;
     }
 
-    /* Timer com glow */
+    .card:hover .desc {
+      color: #e5e7eb;
+    }
+
+    /* Timer com efeito neon */
     .timer {
       background: #1e293b;
       color: #22c55e;
@@ -119,96 +174,56 @@
       font-weight: bold;
       font-family: 'Courier New', monospace;
       text-align: center;
-      padding: 12px;
-      border-radius: 8px;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover .timer {
-      background: #2a3a5a;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
-    }
-
-    /* Seção Por que - com enfeite */
-    .porque {
-      background: #111827;
-      border-left: 5px solid #a78bfa;
+      padding: 14px;
       border-radius: 12px;
-      padding: 24px;
-      margin-top: 32px;
+      letter-spacing: 1px;
       transition: all 0.3s ease;
       position: relative;
     }
 
-    .porque:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(167, 139, 250, 0.2);
-    }
-
-    .porque::after {
-      content: "💭";
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      font-size: 30px;
-      opacity: 0.2;
-    }
-
-    .porque h3 {
-      color: #c4b5fd;
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
-
-    .porque p {
-      color: #d1d5db;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .porque ul {
-      margin-left: 24px;
-      margin-bottom: 16px;
-    }
-
-    .porque li {
-      color: #d1d5db;
-      margin-bottom: 10px;
-      line-height: 1.5;
-      transition: transform 0.2s;
-    }
-
-    .porque li:hover {
-      transform: translateX(5px);
-      color: #c4b5fd;
-    }
-
-    .porque strong {
-      color: #a78bfa;
-    }
-
-    .conclusao {
-      background: #1e1b4b;
-      padding: 16px;
-      border-radius: 8px;
-      text-align: center;
-      font-style: italic;
-      color: #c4b5fd;
-      transition: all 0.3s;
-    }
-
-    .conclusao:hover {
-      background: #2a1e6b;
+    .card:hover .timer {
+      background: #0f172a;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
       transform: scale(1.01);
+      color: #4ade80;
+    }
+
+    /* Efeito de loading sutil no timer */
+    .timer::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      transition: width 0.3s;
+    }
+
+    .card:hover .timer::before {
+      width: 100%;
     }
 
     footer {
       text-align: center;
       color: #6b7280;
-      margin-top: 40px;
+      margin-top: 50px;
       padding-top: 20px;
       border-top: 1px solid #1f2937;
+      transition: all 0.3s;
+    }
+
+    footer:hover {
+      color: #9ca3af;
+      transform: scale(1.02);
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      body { padding: 20px; }
+      h1 { font-size: 32px; }
+      .timer { font-size: 16px; }
+      .card:hover { transform: scale(1.01); }
     }
   </style>
 </head>
@@ -217,7 +232,7 @@
 <div class="container">
   <h1>📅 Planejamento de Vida</h1>
   <div style="text-align: center;">
-    <p class="subtitle">✨ Objetivos com disciplina, estudo e consistência ✨</p>
+    <p class="subtitle">⚡ Objetivos com disciplina, estudo e consistência ⚡</p>
   </div>
 
   <!-- Faculdade -->
@@ -250,21 +265,6 @@
     <div class="meta">🎯 Meta: 10 anos</div>
     <p class="desc">Ter um filho — a experiência mais transformadora. Deixar um legado, compartilhar amor e construir uma família com responsabilidade, maturidade e propósito.</p>
     <div class="timer" id="timerFilho"></div>
-  </div>
-
-  <!-- Por que alcançar esses objetivos? -->
-  <div class="porque">
-    <h3>💭 Por que alcançar esses objetivos?</h3>
-    <p>Cada meta representa um pilar essencial para minha realização pessoal e profissional:</p>
-    <ul>
-      <li><strong>🎓 Faculdade:</strong> O conhecimento é a moeda do futuro. Com ele, posso transformar minha realidade, conquistar boas oportunidades e construir uma carreira sólida.</li>
-      <li><strong>🚗 CNH:</strong> Independência não tem preço. Ter mobilidade significa mais liberdade para trabalhar, estudar, viajar e aproveitar a vida sem depender de ninguém.</li>
-      <li><strong>🏠 Casa própria:</strong> Segurança e estabilidade. Ter meu cantinho é conquistar um patrimônio, ter um refúgio e construir memórias em um lugar que é realmente meu.</li>
-      <li><strong>👶 Filho:</strong> Deixar um legado. Ser exemplo para uma nova vida, compartilhar valores, amor e construir uma família baseada em respeito e propósito.</li>
-    </ul>
-    <div class="conclusao">
-      ✨ Esses objetivos não são apenas sonhos — são compromissos que exigem disciplina, consistência e propósito todos os dias. O futuro não espera, ele se constrói agora.
-    </div>
   </div>
 
   <footer>
