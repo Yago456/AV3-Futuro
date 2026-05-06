@@ -12,10 +12,11 @@
     }
 
     body {
-      background: #0a0f1c;
+      background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 100%);
       color: #e5e7eb;
       font-family: 'Segoe UI', Arial, sans-serif;
       padding: 40px 20px;
+      min-height: 100vh;
     }
 
     .container {
@@ -23,11 +24,16 @@
       margin: 0 auto;
     }
 
+    /* Título com enfeite */
     h1 {
       text-align: center;
-      font-size: 40px;
-      color: #60a5fa;
+      font-size: 42px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
       margin-bottom: 10px;
+      letter-spacing: -0.5px;
     }
 
     .subtitle {
@@ -35,26 +41,56 @@
       color: #9ca3af;
       margin-bottom: 40px;
       font-size: 16px;
+      border-bottom: 1px solid #1e293b;
+      display: inline-block;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 8px;
     }
 
+    /* Card com efeito de expansão no hover */
     .card {
       background: #111827;
       border-left: 5px solid #3b82f6;
       border-radius: 12px;
       padding: 24px;
       margin-bottom: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
+    /* Efeito de expansão: aumenta o card e a borda */
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+      transform: scale(1.02);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+      border-left-width: 8px;
+    }
+
+    /* Enfeite de fundo no hover */
+    .card:hover::before {
+      content: "✨";
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      opacity: 0.6;
+      animation: brilho 1s ease infinite;
+    }
+
+    @keyframes brilho {
+      0%, 100% { opacity: 0.3; transform: rotate(0deg); }
+      50% { opacity: 0.8; transform: rotate(10deg); }
     }
 
     h2 {
       color: #93c5fd;
       font-size: 24px;
       margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .meta {
@@ -72,8 +108,10 @@
       color: #d1d5db;
       line-height: 1.5;
       margin-bottom: 16px;
+      font-size: 14px;
     }
 
+    /* Timer com glow */
     .timer {
       background: #1e293b;
       color: #22c55e;
@@ -84,14 +122,37 @@
       padding: 12px;
       border-radius: 8px;
       letter-spacing: 1px;
+      transition: all 0.3s ease;
     }
 
+    .card:hover .timer {
+      background: #2a3a5a;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+    }
+
+    /* Seção Por que - com enfeite */
     .porque {
       background: #111827;
       border-left: 5px solid #a78bfa;
       border-radius: 12px;
       padding: 24px;
       margin-top: 32px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .porque:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(167, 139, 250, 0.2);
+    }
+
+    .porque::after {
+      content: "💭";
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      font-size: 30px;
+      opacity: 0.2;
     }
 
     .porque h3 {
@@ -115,6 +176,12 @@
       color: #d1d5db;
       margin-bottom: 10px;
       line-height: 1.5;
+      transition: transform 0.2s;
+    }
+
+    .porque li:hover {
+      transform: translateX(5px);
+      color: #c4b5fd;
     }
 
     .porque strong {
@@ -128,6 +195,12 @@
       text-align: center;
       font-style: italic;
       color: #c4b5fd;
+      transition: all 0.3s;
+    }
+
+    .conclusao:hover {
+      background: #2a1e6b;
+      transform: scale(1.01);
     }
 
     footer {
@@ -143,12 +216,14 @@
 
 <div class="container">
   <h1>📅 Planejamento de Vida</h1>
-  <p class="subtitle">Objetivos de longo prazo com disciplina, estudo e consistência</p>
+  <div style="text-align: center;">
+    <p class="subtitle">✨ Objetivos com disciplina, estudo e consistência ✨</p>
+  </div>
 
   <!-- Faculdade -->
   <div class="card">
     <h2>🎓 Formação Acadêmica</h2>
-    <div class="meta">Meta: 6 anos</div>
+    <div class="meta">🎯 Meta: 6 anos</div>
     <p class="desc">Engenharia da Computação — construindo uma base sólida em programação, algoritmos, inteligência artificial e sistemas embarcados. Cada aula e cada projeto são tijolos na fundação da minha carreira tecnológica.</p>
     <div class="timer" id="timerFaculdade"></div>
   </div>
@@ -156,7 +231,7 @@
   <!-- CNH -->
   <div class="card">
     <h2>🚗 Liberdade Sobre Rodas</h2>
-    <div class="meta">Meta: 1 ano</div>
+    <div class="meta">🎯 Meta: 1 ano</div>
     <p class="desc">Carteira Nacional de Habilitação — a chave para independência, autonomia e novas possibilidades. Poder ir e vir sem depender de ninguém é o primeiro passo rumo à liberdade geográfica.</p>
     <div class="timer" id="timerCnh"></div>
   </div>
@@ -164,7 +239,7 @@
   <!-- Casa própria -->
   <div class="card">
     <h2>🏠 Meu Lar, Meu Refúgio</h2>
-    <div class="meta">Meta: 7 anos</div>
+    <div class="meta">🎯 Meta: 7 anos</div>
     <p class="desc">Casa própria — o símbolo da estabilidade financeira e emocional. Cada real investido e cada decisão consciente me aproximam da realização desse sonho de segurança.</p>
     <div class="timer" id="TimerCasa"></div>
   </div>
@@ -172,7 +247,7 @@
   <!-- Filho -->
   <div class="card">
     <h2>👶 Legado Familiar</h2>
-    <div class="meta">Meta: 10 anos</div>
+    <div class="meta">🎯 Meta: 10 anos</div>
     <p class="desc">Ter um filho — a experiência mais transformadora. Deixar um legado, compartilhar amor e construir uma família com responsabilidade, maturidade e propósito.</p>
     <div class="timer" id="timerFilho"></div>
   </div>
