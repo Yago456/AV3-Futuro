@@ -2,281 +2,80 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planejamento de Vida | Yago</title>
-
+<title>Planejamento de Vida</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 100%);
-  color: #e5e7eb;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  font-size: 42px;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #60a5fa, #3b82f6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.subtitle {
-  text-align: center;
-  color: #9ca3af;
-  margin-bottom: 40px;
-  font-size: 18px;
-}
-
-.card {
-  background: rgba(17, 24, 39, 0.9);
-  border-left: 5px solid #3b82f6;
-  padding: 25px;
-  margin-bottom: 25px;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-}
-
-h2 {
-  color: #93c5fd;
-  margin-bottom: 10px;
-  font-size: 24px;
-}
-
-.meta-badge {
-  display: inline-block;
-  background: #3b82f6;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.description {
-  color: #d1d5db;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.highlight {
-  color: #60a5fa;
-  font-weight: bold;
-}
-
-.progress-label {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-.progress-bar {
-  background: #1e293b;
-  height: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.progress-fill {
-  background: linear-gradient(90deg, #3b82f6, #60a5fa);
-  width: 0%;
-  height: 100%;
-  border-radius: 10px;
-  transition: width 0.5s ease;
-}
-
-.timer {
-  font-size: 24px;
-  font-weight: bold;
-  color: #22c55e;
-  text-align: center;
-  padding: 15px;
-  background: rgba(34, 197, 94, 0.1);
-  border-radius: 10px;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 2px;
-  margin-top: 10px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #1f2937;
-  color: #6b7280;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 28px;
-  }
-  
-  .timer {
-    font-size: 18px;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0f1c;color:#fff;font-family:Arial;padding:20px;}
+.container{max-width:900px;margin:auto;}
+h1{text-align:center;color:#60a5fa;margin-bottom:20px;}
+.card{background:#111827;border-left:5px solid #3b82f6;padding:20px;margin-bottom:20px;border-radius:10px;}
+h2{color:#93c5fd;margin-bottom:10px;}
+.desc{color:#ccc;margin-bottom:15px;font-size:14px;}
+.timer{font-size:22px;font-weight:bold;color:#22c55e;text-align:center;padding:10px;background:#1e293b;border-radius:8px;}
+footer{text-align:center;margin-top:30px;color:#6b7280;}
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1> Planejamento de Vida</h1>
-  <p class="subtitle">Objetivos de longo prazo com disciplina, estudo e consistência</p>
+<h1>📅 Planejamento de Vida</h1>
 
-  <!-- Card 1: Faculdade (6 anos) -->
-  <div class="card">
-    <h2>🎓 Formação Acadêmica</h2>
-    <div class="meta-badge">Meta: 6 anos</div>
-    <p class="description">
-      <strong>Engenharia da Computação</strong> — Mais que um diploma, é a construção de uma base sólida em 
-      <span class="highlight">programação, algoritmos, inteligência artificial e sistemas embarcados</span>. 
-      Cada aula, cada projeto e cada madrugada de estudos serão tijolos na fundação da minha carreira 
-      tecnológica. A faculdade não é o destino final, mas o <strong>lançamento para o infinito</strong>.
-    </p>
-    <div class="progress-label">PROGRESSO</div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-faculdade"></div>
-    </div>
-    <div class="timer" id="timer-faculdade"></div>
-  </div>
+<div class="card">
+  <h2>🎓 Faculdade (6 anos)</h2>
+  <p class="desc">Engenharia da Computação - construindo base sólida em programação, IA e sistemas.</p>
+  <div class="timer" id="faculdade"></div>
+</div>
 
-  <!-- Card 2: CNH (1 ano) -->
-  <div class="card">
-    <h2>🚗 Liberdade Sobre Rodas</h2>
-    <div class="meta-badge">Meta: 1 ano</div>
-    <p class="description">
-      A <strong>Carteira Nacional de Habilitação (CNH)</strong> representa muito mais que um documento — 
-      é a chave para <span class="highlight">independência, autonomia e novas possibilidades</span>. 
-      Poder ir e vir sem depender de ninguém, explorar novos lugares, assumir responsabilidades e 
-      abrir portas profissionais. É o primeiro grande passo rumo à <strong>liberdade geográfica</strong>.
-    </p>
-    <div class="progress-label">PROGRESSO</div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-cnh"></div>
-    </div>
-    <div class="timer" id="timer-cnh"></div>
-  </div>
+<div class="card">
+  <h2>🚗 CNH (1 ano)</h2>
+  <p class="desc">Liberdade e independência para ir e vir.</p>
+  <div class="timer" id="cnh"></div>
+</div>
 
-  <!-- Card 3: Casa própria (7 anos) -->
-  <div class="card">
-    <h2>🏠 Meu Lar, Meu Refúgio</h2>
-    <div class="meta-badge">Meta: 7 anos</div>
-    <p class="description">
-      A <strong>casa própria</strong> vai além de quatro paredes — é o símbolo da 
-      <span class="highlight">estabilidade financeira e emocional</span>. 
-      É o lugar onde construirei memórias, onde minhas paredes vão testemunhar meus acertos e aprendizados. 
-      Para chegar lá, cada real investido, cada decisão financeira consciente e cada hora extra de trabalho 
-      será um <strong>investimento no meu futuro</strong>.
-    </p>
-    <div class="progress-label">PROGRESSO</div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-casa"></div>
-    </div>
-    <div class="timer" id="timer-casa"></div>
-  </div>
+<div class="card">
+  <h2>🏠 Casa própria (7 anos)</h2>
+  <p class="desc">Estabilidade financeira e realização do sonho do lar.</p>
+  <div class="timer" id="casa"></div>
+</div>
 
-  <!-- Card 4: Filho (10 anos) -->
-  <div class="card">
-    <h2>👶 Legado Familiar</h2>
-    <div class="meta-badge">Meta: 10 anos</div>
-    <p class="description">
-      Ter um <strong>filho</strong> é a experiência humana mais transformadora — é decidir deixar um legado, 
-      compartilhar amor e construir uma família com <span class="highlight">responsabilidade e propósito</span>. 
-      Antes disso, preciso estar preparado: mentalmente maduro, financeiramente estável e emocionalmente pronto.
-    </p>
-    <div class="progress-label">PROGRESSO</div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-filho"></div>
-    </div>
-    <div class="timer" id="timer-filho"></div>
-  </div>
+<div class="card">
+  <h2>👶 Filho (10 anos)</h2>
+  <p class="desc">Construir uma família com amor, responsabilidade e propósito.</p>
+  <div class="timer" id="filho"></div>
+</div>
 
-  <footer>
-    <p>🚀 Projeto desenvolvido por Yago | Planejamento 2026-2036</p>
-  </footer>
+<footer>🚀 Projeto desenvolvido por Yago | Disciplina e consistência</footer>
 </div>
 
 <script>
-// Função que cria o timer regressivo
-function criarTimer(elementId, progressId, anos) {
-  const timerElement = document.getElementById(elementId);
-  const progressElement = document.getElementById(progressId);
+function timer(id, anos){
+  let el = document.getElementById(id);
+  let futuro = new Date();
+  futuro.setFullYear(futuro.getFullYear() + anos);
   
-  // Data alvo (hoje + X anos)
-  const dataAlvo = new Date();
-  dataAlvo.setFullYear(dataAlvo.getFullYear() + anos);
-  
-  function atualizarTimer() {
-    const agora = new Date();
-    const diferenca = dataAlvo - agora;
+  setInterval(() => {
+    let agora = new Date();
+    let diff = futuro - agora;
     
-    // Se já passou da data
-    if (diferenca <= 0) {
-      timerElement.innerHTML = "🎉 OBJETIVO ALCANÇADO! 🎉";
-      if (progressElement) progressElement.style.width = "100%";
+    if(diff <= 0){
+      el.innerHTML = "🎯 OBJETIVO ALCANÇADO! Agora é seguir em frente e aproveitar a conquista!";
       return;
     }
     
-    // Cálculos do tempo
-    const segundosTotal = Math.floor(diferenca / 1000);
-    const minutosTotal = Math.floor(segundosTotal / 60);
-    const horasTotal = Math.floor(minutosTotal / 60);
-    const diasTotal = Math.floor(horasTotal / 24);
+    let seg = Math.floor(diff / 1000) % 60;
+    let min = Math.floor(diff / 1000 / 60) % 60;
+    let horas = Math.floor(diff / 1000 / 60 / 60) % 24;
+    let dias = Math.floor(diff / 1000 / 60 / 60 / 24);
+    let anosRest = Math.floor(dias / 365);
     
-    const anosRestantes = Math.floor(diasTotal / 365);
-    const diasRestantes = diasTotal % 365;
-    const horas = horasTotal % 24;
-    const minutos = minutosTotal % 60;
-    const segundos = segundosTotal % 60;
-    
-    // Exibir o timer
-    timerElement.innerHTML = `⏱️ ${anosRestantes} anos, ${diasRestantes} dias, ${horas.toString().padStart(2, '0')}h ${minutos.toString().padStart(2, '0')}m ${segundos.toString().padStart(2, '0')}s`;
-    
-    // Atualizar barra de progresso
-    if (progressElement) {
-      const totalDiasMeta = anos * 365;
-      const progresso = (diasTotal / totalDiasMeta) * 100;
-      progressElement.style.width = `${Math.min(100, progresso)}%`;
-    }
-  }
-  
-  // Executar imediatamente e depois a cada segundo
-  atualizarTimer();
-  setInterval(atualizarTimer, 1000);
+    el.innerHTML = `${anosRest} anos, ${dias % 365} dias, ${horas}h ${min}m ${seg}s`;
+  }, 1000);
 }
 
-// Iniciar todos os timers
-criarTimer('timer-faculdade', 'progress-faculdade', 6);
-criarTimer('timer-cnh', 'progress-cnh', 1);
-criarTimer('timer-casa', 'progress-casa', 7);
-criarTimer('timer-filho', 'progress-filho', 10);
+timer("faculdade", 6);
+timer("cnh", 1);
+timer("casa", 7);
+timer("filho", 10);
 </script>
 
 </body>
